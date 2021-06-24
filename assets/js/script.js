@@ -1,12 +1,10 @@
 var specialCharacters = [ "@", "%", "+", "\\", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", ".", ];
 // Array of numeric characters to be included in password
-var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Array of lowercase characters to be included in password
 var lowerCasedCharacters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ];
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ];
-// New array containing all the arrays before
-var possibleCharacters = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
 
 function generatePassword() {
 var possibleCharacters = [];
@@ -16,12 +14,12 @@ var passwordLength = parseInt(prompt("Enter length of password"));
     alert("You must enter a number!");
     return;
     // if the user enters a number under 8
-  } else if (passwordLength <= 8) {
-    alert("You must enter a number greater than 8!");
+  } else if (passwordLength < 8) {
+    alert("Your password must have a minimum of 8 characters!");
     return;
     // if the user enters a number over 128
-  } else if (passwordLength >= 128) {
-    alert("You must enter a number less than 128!");
+  } else if (passwordLength > 128) {
+    alert("Your password must have a maximum of 128 characters!");
     return;
   }
   
@@ -36,6 +34,19 @@ var passwordLength = parseInt(prompt("Enter length of password"));
 
   var containsLowerCasedCharacters = confirm("Click OK to confirm including lower characters");
   console.log(containsLowerCasedCharacters);
+
+  if (containsSpecialCharacters) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+  }
+  if (containsNumberCharacters) {
+    possibleCharacters = possibleCharacters.concat(numberCharacters);
+  }
+  if (containsUpperCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+  }
+  if (containsLowerCasedCharacters) {
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+  }
 } 
 
 
