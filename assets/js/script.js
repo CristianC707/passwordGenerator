@@ -1,15 +1,18 @@
-var specialCharacters = [ "@", "%", "+", "\\", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", ".", ];
+var specialCharacters = ["@", "%", "+", "\\", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", ".",];
 // Array of numeric characters to be included in password
 var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ];
+var lowerCasedCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ];
+var upperCasedCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+var finalPassword= [];
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
 
 function generatePassword() {
-var possibleCharacters = [];
-var passwordLength = parseInt(prompt("Enter length of password"));
-    // If the user enters a non-integer
+  var possibleCharacters = [];
+  var passwordLength = parseInt(prompt("Enter length of password"));
+  // If the user enters a non-integer
   if (isNaN(passwordLength)) {
     alert("You must enter a number!");
     return;
@@ -22,7 +25,8 @@ var passwordLength = parseInt(prompt("Enter length of password"));
     alert("Your password must have a maximum of 128 characters!");
     return;
   }
-  
+  console.log(passwordLength);
+
   var containsSpecialCharacters = confirm("Click OK to confirm special characters in your password");
   console.log(containsSpecialCharacters);
 
@@ -37,21 +41,29 @@ var passwordLength = parseInt(prompt("Enter length of password"));
 
   if (containsSpecialCharacters) {
     possibleCharacters = possibleCharacters.concat(specialCharacters);
+    console.log(possibleCharacters);
   }
   if (containsNumberCharacters) {
     possibleCharacters = possibleCharacters.concat(numberCharacters);
+    console.log(possibleCharacters);
   }
   if (containsUpperCasedCharacters) {
     possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+    console.log(possibleCharacters);
   }
   if (containsLowerCasedCharacters) {
     possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+    console.log(possibleCharacters);
   }
-} 
 
-
-
-
+  for (let i = 0; i < passwordLength; i++) {
+    var random = Math.floor(Math.random() * (possibleCharacters.length));
+    const element = array[i];
+    var chosenkeys = possibleCharacters[random];
+    finalPassword.push(chosenkeys);
+  }
+  console.log(generatePassword)
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
