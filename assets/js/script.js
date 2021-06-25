@@ -27,7 +27,7 @@ function generatePassword() {
     return;
   }
   console.log(passwordLength);
-
+// This section checks whether user wants these and acts accordingly
   var containsSpecialCharacters = confirm("Click OK to confirm special characters in your password");
   console.log(containsSpecialCharacters);
 
@@ -39,7 +39,7 @@ function generatePassword() {
 
   var containsLowerCasedCharacters = confirm("Click OK to confirm including lower characters");
   console.log(containsLowerCasedCharacters);
-
+// if true, adds the array to possible arrays
   if (containsSpecialCharacters) {
     possibleCharacters = possibleCharacters.concat(specialCharacters);
     console.log(possibleCharacters);
@@ -56,7 +56,7 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
     console.log(possibleCharacters);
   }
-
+// This is what randomly picks the characters
   for (let i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * (possibleCharacters.length));
     // const element = array[i];
