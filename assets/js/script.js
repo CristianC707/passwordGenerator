@@ -63,22 +63,17 @@ function generatePassword() {
     finalPassword.push(chosenkeys);
   }
   console.log(generatePassword);
-  return finalPassword;
 }
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy");
 // Write password to the #password input
-function writePassword() {
-  generatePassword = [];
-  generatePassword();
-  passwordText.value = password;
+const generatedPassword = generatePassword();
+  // passwordText.value = password;
   var password = generatedPassword.join("");
   console.log(password);
   passwordText.value = password;
-
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
