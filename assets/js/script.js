@@ -10,6 +10,7 @@ var finalPassword= [];
 var passwordText = document.querySelector("#password");
 
 function generatePassword() {
+  finalPassword = [];
   var possibleCharacters = [];
   var passwordLength = prompt("Enter length of password");
   // If the user enters a non-integer
@@ -68,12 +69,15 @@ function generatePassword() {
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy");
+// const generatedPassword = generatePassword();
 // Write password to the #password input
-const generatedPassword = generatePassword();
-  // passwordText.value = password;
-  var password = generatedPassword.join("");
+function writePassword() {
+// const generatedPassword = generatePassword();
+  generatePassword();
+  var password = finalPassword.join("");
   console.log(password);
   passwordText.value = password;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
