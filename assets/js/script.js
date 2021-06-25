@@ -6,12 +6,12 @@ var lowerCasedCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
 var finalPassword= [];
-var password = generatePassword();
+// var generatePassword= [];
 var passwordText = document.querySelector("#password");
 
 function generatePassword() {
   var possibleCharacters = [];
-  var passwordLength = parseInt(prompt("Enter length of password"));
+  var passwordLength = prompt("Enter length of password");
   // If the user enters a non-integer
   if (isNaN(passwordLength)) {
     alert("You must enter a number!");
@@ -58,21 +58,24 @@ function generatePassword() {
 
   for (let i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * (possibleCharacters.length));
-    const element = array[i];
+    // const element = array[i];
     var chosenkeys = possibleCharacters[random];
     finalPassword.push(chosenkeys);
   }
-  console.log(generatePassword)
+  console.log(generatePassword);
+  return finalPassword;
 }
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+var copyBtn = document.querySelector("#copy");
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
+  generatePassword = [];
+  generatePassword();
+  passwordText.value = password;
+  var password = generatedPassword.join("");
+  console.log(password);
   passwordText.value = password;
 
 }
