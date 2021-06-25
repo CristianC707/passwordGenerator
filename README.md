@@ -1,2 +1,3 @@
 # passwordGenerator
-[Password Generator.pdf](https://github.com/CristianC707/passwordGenerator/files/6713182/Password.Generator.pdf)
+![img](https://user-images.githubusercontent.com/83788525/123362120-32172b80-d53e-11eb-9d3f-d307e13622b8.png)
+
